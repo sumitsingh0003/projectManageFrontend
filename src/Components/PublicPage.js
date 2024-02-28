@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import BASEURL from "../constant/baseurl.js"; // Assuming you have a file exporting BASEURL
+import BASEURL from "../constant/baseurl.js";
 import axios from "axios";
-import styles from "../Styles/PublicPage.module.css"; // Assuming you have CSS modules set up
-import codesandbox from "../Assets/Icons/codesandbox.png"; // Assuming you have the codesandbox image
+import styles from "../Styles/PublicPage.module.css";
+import codesandbox from "../Assets/Icons/codesandbox.png";
 
 const PublicPage = () => {
   const navigate = useNavigate();
@@ -13,7 +13,9 @@ const PublicPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASEURL}/api/task/shared-task/${shareLink}`);
+        const response = await axios.get(
+          `${BASEURL}/api/task/shared-task/${shareLink}`
+        );
         setQuizData([response.data]);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -25,23 +27,25 @@ const PublicPage = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const options = { month: 'short', day: '2-digit' };
-    const formattedDate = date.toLocaleDateString('en-US', options).toUpperCase();
-    return formattedDate.replace(/\s/, ' ');
+    const options = { month: "short", day: "2-digit" };
+    const formattedDate = date
+      .toLocaleDateString("en-US", options)
+      .toUpperCase();
+    return formattedDate.replace(/\s/, " ");
   };
 
   const curDateColor = (dateString) => {
-    if (!dateString) return false; 
+    if (!dateString) return false;
     const dueDate = new Date(dateString);
     const currentDate = new Date();
     return dueDate <= currentDate;
   };
-  
+
   const handleHomeClick = () => {
     navigate("/dashboard");
   };
 
-  const checkInput = () => {}
+  const checkInput = () => {};
 
   return (
     <div className={styles.mainDashboard}>
@@ -73,7 +77,10 @@ const PublicPage = () => {
                 <div className={styles.itemMainBox} key={index}>
                   <div className={styles.itemBoxPrity}>
                     <div className={styles.itemBoxPritytitle}>
-                      <div className={styles.priorityDots} style={priorityStyle}></div>
+                      <div
+                        className={styles.priorityDots}
+                        style={priorityStyle}
+                      ></div>
                       <p>{item.priority}</p>
                     </div>
                     <div className={styles.itemBoxPrityIcons}></div>
@@ -87,7 +94,11 @@ const PublicPage = () => {
                       {item.checklist.map((val, indx) => {
                         return (
                           <li key={indx}>
-                            <input type="checkbox" checked={val.status} onChange={checkInput} />
+                            <input
+                              type="checkbox"
+                              checked={val.status}
+                              onChange={checkInput}
+                            />
                             {val.item}
                           </li>
                         );
@@ -96,13 +107,22 @@ const PublicPage = () => {
                   </div>
                   <div className={styles.chooseTaskStatus}>
                     <div>
-                      {item.dueDate === null ? '' : (
+                      {item.dueDate === null ? (
+                        ""
+                      ) : (
                         <>
                           <span>Duo Date</span>
-                          <span className={styles.dateStatus} style={{ 
-                            backgroundColor: curDateColor(item.dueDate) ? '#cf3636' : '#eeecec', 
-                            color: curDateColor(item.dueDate) ? '#fff' : '#000' 
-                          }}>
+                          <span
+                            className={styles.dateStatus}
+                            style={{
+                              backgroundColor: curDateColor(item.dueDate)
+                                ? "#cf3636"
+                                : "#eeecec",
+                              color: curDateColor(item.dueDate)
+                                ? "#fff"
+                                : "#000",
+                            }}
+                          >
                             {formatDate(item.dueDate)}
                           </span>
                         </>

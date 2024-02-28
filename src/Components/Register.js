@@ -37,19 +37,18 @@ const Register = () => {
     return /\S+@\S+\.\S+/.test(email);
   }
 
-  const changeLoadingStae = () =>{
+  const changeLoadingStae = () => {
     setTimeout(() => {
-      setLoadingState(false)
+      setLoadingState(false);
     }, 2000);
-  }
-
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoadingState(true)
-    changeLoadingStae()
+    setLoadingState(true);
+    changeLoadingStae();
     const { name, email, password, confirmPassword } = formData;
-  
+
     if (!name || !email || !password || !confirmPassword) {
       return setErrData(true);
     }
@@ -62,7 +61,7 @@ const Register = () => {
     if (password !== confirmPassword) {
       return alert("Passwords do not match");
     }
-  
+
     try {
       const response = await axios.post(
         `${BASEURL}/api/auth/register`,
@@ -73,19 +72,18 @@ const Register = () => {
           },
         }
       );
-  
+
       const data = response.data;
       if (response.status === 200 || response.status === 201) {
         localStorage.setItem("token", data.token);
         // const tokenExpirationTime = Date.now() + (24 * 60 * 60 * 1000); // 24 hours in milliseconds
         // localStorage.setItem("token", JSON.stringify({ value: data.token, expiration: tokenExpirationTime }));
-  
+
         setFormData({ name: "", email: "", password: "", confirmPassword: "" });
         setEmailError("");
         navigate("/dashboard");
       } else {
         console.error("Error:", data.error);
-         
       }
     } catch (error) {
       console.error("Error:", error.message);
@@ -98,20 +96,8 @@ const Register = () => {
       }
     }
   };
+
   
-  // function isTokenExpired() {
-  //   const token = localStorage.getItem("token");
-  //   if (!token) return true; 
-  //   const { expiration } = JSON.parse(token);
-  //   return expiration < Date.now(); 
-  // }
-  
-  // if (!isTokenExpired()) {
-  //   // eslint-disable-next-line 
-  //   const { value } = JSON.parse(localStorage.getItem("token"));
-  // } else {
-  //   localStorage.removeItem("token");
-  // }
 
   const handleLoginClick = () => {
     navigate("/login");
@@ -143,7 +129,7 @@ const Register = () => {
                   />
                 </div>
                 {errData && formData.name.length === 0 ? (
-                  <p className={styles.errField}>Please fill the field.</p>
+                  <p className={styles.errField}>Please Enter the Name</p>
                 ) : (
                   ""
                 )}
@@ -159,7 +145,7 @@ const Register = () => {
                   />
                 </div>
                 {errData && formData.email.length === 0 ? (
-                  <p className={styles.errField}>Please fill the field.</p>
+                  <p className={styles.errField}>Please Enter the Email</p>
                 ) : (
                   ""
                 )}
@@ -195,7 +181,7 @@ const Register = () => {
                   </div>
                 </div>
                 {errData && formData.password.length === 0 ? (
-                  <p className={styles.errField}>Please fill the field.</p>
+                  <p className={styles.errField}>Please Enter the Password</p>
                 ) : (
                   ""
                 )}
@@ -226,15 +212,21 @@ const Register = () => {
                   </div>
                 </div>
                 {errData && formData.confirmPassword.length === 0 ? (
-                  <p className={styles.errField}>Please fill the field.</p>
+                  <p className={styles.errField}>Please Re-enter the Password</p>
                 ) : (
                   ""
                 )}
-                {loadingState? <img src={LoadingGif} alt="Loading Gif" className="loadingGif compoGif" /> :
-                <button className={styles.submtBtn} type="submit">
-                  Register
-                </button>
-                }
+                {loadingState ? (
+                  <img
+                    src={LoadingGif}
+                    alt="Loading Gif"
+                    className="loadingGif compoGif"
+                  />
+                ) : (
+                  <button className={styles.submtBtn} type="submit">
+                    Register
+                  </button>
+                )}
               </form>
               <span>Already have an account?</span>
               <button className={styles.routPageBtn} onClick={handleLoginClick}>

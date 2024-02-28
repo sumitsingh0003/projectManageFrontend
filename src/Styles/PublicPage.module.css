@@ -148,3 +148,48 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+
+/* Media Queries */
+@media screen and (max-width: 700px) {
+  .mainDashboard {
+    width: 100%;
+    
+    
+  }
+.publicPageItem .itemsSec {
+  width: 80%;
+margin-top: 35px;}
+
+.itemBoxPritytitle p{
+font-size: 9px;
+}
+.tasklisting ul li {
+  font-size: 12px;
+}
+
+.itemMainBox h3 {
+font-size: 9px;
+
+}
+.itemBoxTitle p{
+  font-size: 12px;
+}
+.itemBoxPrity {
+  margin-bottom: 10px; 
+}
+
+.itemMainBox {
+  padding: 18px; 
+}
+
+.itemBoxTitle {
+  margin-top: 10px; 
+}
+.chooseTaskStatus span {
+  font-size: 12px; 
+}
+.itemMainBox h3 {
+  font-size: 14px; 
+}
+}

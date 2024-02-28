@@ -4,15 +4,21 @@ import BASEURL from "../constant/baseurl.js";
 import DeletePopup from "./DeletePopup.js";
 import EditTaskForm from "./EditTaskForm.js";
 import axios from "axios";
-
-const ProgressItem = ({ progTaskData, popUpTaskBox, checkFunc, checkListCurID  }) => {
+import { useEffect } from "react";
+const ProgressItem = ({
+  progTaskData,
+  popUpTaskBox,
+  checkFunc,
+  checkListCurID,
+}) => {
   // console.log(progTaskData)
   const [showItemBoxIndex, setShowItemBoxIndex] = useState(-1);
   const [showCopyLink, setShowCopyLink] = useState(false);
   const [showDeleteBox, setShowDeleteBox] = useState(false);
   const [editTaskItemData, setEditTaskItemData] = useState([]);
   const [showEditTaskPopup, setShowEditTaskPopup] = useState(false);
-  const [deleteId, setDeleteId] = useState('');
+  const [deleteId, setDeleteId] = useState("");
+  const [checkedCount, setCheckedCount] = useState([]);
 
   const titleItemsBox = (id) => {
     if (id === showItemBoxIndex) {
@@ -25,57 +31,63 @@ const ProgressItem = ({ progTaskData, popUpTaskBox, checkFunc, checkListCurID  }
   const editTask = async (taskItemId) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.get(`${BASEURL}/api/task/single-task/${taskItemId}`,
+      const response = await axios.get(
+        `${BASEURL}/api/task/single-task/${taskItemId}`,
         {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         }
-    );
+      );
       const data = response.data;
       if (response.status === 200 || response.status === 201) {
         setShowEditTaskPopup(!showEditTaskPopup);
-        setEditTaskItemData(data)
+        setEditTaskItemData(data);
       } else {
         console.error("Error:", data.error);
       }
     } catch (error) {
       console.error("Error:", error.message);
     }
-};
+  };
 
-const deleteItemBox = async (itemId) => {
-  setShowDeleteBox(!showDeleteBox)
-  setDeleteId(itemId)
-  popUpTaskBox()
-};
+  const deleteItemBox = async (itemId) => {
+    setShowDeleteBox(!showDeleteBox);
+    setDeleteId(itemId);
+    popUpTaskBox();
+  };
 
-const sharedItemLink  = (link) => (event) => {
-  event.preventDefault();
-  const domainURL = window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
-  // console.log(domainURL)
-  navigator.clipboard.writeText(`${domainURL}/publicpage/${link}`);
-  setShowCopyLink(true);
-  setShowItemBoxIndex(-1);
-  setTimeout(() => {
-    setShowCopyLink(false);
-  }, 3000);
-};
-
+  const sharedItemLink = (link) => (event) => {
+    event.preventDefault();
+    const domainURL =
+      window.location.protocol +
+      "//" +
+      window.location.hostname +
+      (window.location.port ? ":" + window.location.port : "");
+    // console.log(domainURL)
+    navigator.clipboard.writeText(`${domainURL}/publicpage/${link}`);
+    setShowCopyLink(true);
+    setShowItemBoxIndex(-1);
+    setTimeout(() => {
+      setShowCopyLink(false);
+    }, 3000);
+  };
 
   const moveBacklogsItem = async (itemData) => {
-    const updatedItemData = { ...itemData, status: "backlog" }
+    const updatedItemData = { ...itemData, status: "backlog" };
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.put(`${BASEURL}/api/task/updated-task`, updatedItemData,
+      const response = await axios.put(
+        `${BASEURL}/api/task/updated-task`,
+        updatedItemData,
         {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         }
-    );
+      );
       const data = response.data;
       if (response.status === 200 || response.status === 201) {
         popUpTaskBox();
@@ -88,17 +100,19 @@ const sharedItemLink  = (link) => (event) => {
   };
 
   const moveDoneItem = async (itemData) => {
-    const updatedItemData = { ...itemData, status: "done" }
+    const updatedItemData = { ...itemData, status: "done" };
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.put(`${BASEURL}/api/task/updated-task`, updatedItemData,
+      const response = await axios.put(
+        `${BASEURL}/api/task/updated-task`,
+        updatedItemData,
         {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         }
-    );
+      );
       const data = response.data;
       if (response.status === 200 || response.status === 201) {
         popUpTaskBox();
@@ -111,17 +125,19 @@ const sharedItemLink  = (link) => (event) => {
   };
 
   const moveToDoItem = async (itemData) => {
-    const updatedItemData = { ...itemData, status: "todo" }
+    const updatedItemData = { ...itemData, status: "todo" };
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.put(`${BASEURL}/api/task/updated-task`, updatedItemData,
+      const response = await axios.put(
+        `${BASEURL}/api/task/updated-task`,
+        updatedItemData,
         {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         }
-    );
+      );
       const data = response.data;
       if (response.status === 200 || response.status === 201) {
         popUpTaskBox();
@@ -133,29 +149,39 @@ const sharedItemLink  = (link) => (event) => {
     }
   };
 
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const options = { month: 'short', day: '2-digit' };
-    const formattedDate = date.toLocaleDateString('en-US', options).toUpperCase();
-    return formattedDate.replace(/\s/, ' ');
-};
+    const options = { month: "short", day: "2-digit" };
+    const formattedDate = date
+      .toLocaleDateString("en-US", options)
+      .toUpperCase();
+    return formattedDate.replace(/\s/, " ");
+  };
 
+  const curDateColor = (dateString) => {
+    if (!dateString) return false;
+    const dueDate = new Date(dateString);
+    const currentDate = new Date();
+    return dueDate <= currentDate;
+  };
 
-const curDateColor = (dateString) => {
-  if (!dateString) return false; 
-  const dueDate = new Date(dateString);
-  const currentDate = new Date();
-  return dueDate <= currentDate;
-};
+  const closeEditFormBox = () => {
+    setShowEditTaskPopup(!showEditTaskPopup);
+    popUpTaskBox();
+    setShowItemBoxIndex(-1);
+  };
 
-const closeEditFormBox = () => {
-  setShowEditTaskPopup(!showEditTaskPopup);
-  popUpTaskBox()
-  setShowItemBoxIndex(-1)
-};
+  useEffect(() => {
+    const trueStatusCounts = progTaskData.map((task) => {
+      const trueCount = task.checklist.filter(
+        (item) => item.status === true
+      ).length;
+      return { title: task.title, trueCount };
+    });
+    setCheckedCount(trueStatusCounts);
+  }, [progTaskData]);
 
-const checkInput = ()=> {}
+  const checkInput = () => {};
   return (
     <>
       {progTaskData.map((item, index) => {
@@ -204,55 +230,84 @@ const checkInput = ()=> {}
             <h3>{item.title}</h3>
 
             <div className={styles.itemBoxTitle}>
-              <p>Checklist (1/{item.checklist.length})</p>
+              <p>
+                Checklist ({checkedCount[index]?.trueCount || 0}/
+                {item.checklist.length})
+              </p>
 
-              <div className={styles.itemBoxPrityIcons} onClick={()=>checkFunc(index+1)}>
-              {
-                checkListCurID === 0 
-                ? <i className="fa fa-angle-up" aria-hidden="true"></i> 
-                : checkListCurID === -1 
-                ? <i className="fa fa-angle-down" aria-hidden="true"></i> 
-                : checkListCurID === index+1 
-                ? <i className="fa fa-angle-up" aria-hidden="true"></i>
-                : <i className="fa fa-angle-down" aria-hidden="true"></i>
-              }  
+              <div
+                className={styles.itemBoxPrityIcons}
+                onClick={() => checkFunc(index + 1)}
+              >
+                {checkListCurID === 0 ? (
+                  <i className="fa fa-angle-up" aria-hidden="true"></i>
+                ) : checkListCurID === -1 ? (
+                  <i className="fa fa-angle-down" aria-hidden="true"></i>
+                ) : checkListCurID === index + 1 ? (
+                  <i className="fa fa-angle-up" aria-hidden="true"></i>
+                ) : (
+                  <i className="fa fa-angle-down" aria-hidden="true"></i>
+                )}
               </div>
             </div>
 
-
             <div className={styles.tasklisting}>
-            {checkListCurID === index+1 && (
-              <ul>
-                {item.checklist.map((val, indx) => {
-                  return (
-                    <li key={indx}>
-                      <input type="checkbox" checked={val.status} onChange={checkInput} />
-                      {val.item}
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-            {checkListCurID === 0 && (
-              <ul>
-                {item.checklist.map((val, indx) => {
-                  return (
-                    <li key={indx}>
-                      <input type="checkbox" checked={val.status} onChange={checkInput} />
-                      {val.item}
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
+              {checkListCurID === index + 1 && (
+                <ul>
+                  {item.checklist.map((val, indx) => {
+                    return (
+                      <li key={indx}>
+                        <input
+                          type="checkbox"
+                          checked={val.status}
+                          onChange={checkInput}
+                        />
+                        {val.item}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+              {checkListCurID === 0 && (
+                <ul>
+                  {item.checklist.map((val, indx) => {
+                    return (
+                      <li key={indx}>
+                        <input
+                          type="checkbox"
+                          checked={val.status}
+                          onChange={checkInput}
+                        />
+                        {val.item}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
 
             <div className={styles.chooseTaskStatus}>
-            <div>{item.dueDate===null?'' : <span className={styles.dateStatus} style={{ backgroundColor: curDateColor(item.dueDate) ? '#cf3636' : '#eeecec', color: curDateColor(item.dueDate) ? '#fff' : '#000' }}>{formatDate(item.dueDate)}</span> }
-              </div><div className={styles.secTaskStatus}>
-                <span onClick={()=>moveBacklogsItem(item)}>Backlog</span>
-                <span onClick={()=>moveToDoItem(item)}>To-Do</span>
-                <span onClick={()=>moveDoneItem(item)}>Done</span>
+              <div>
+                {item.dueDate === null ? (
+                  ""
+                ) : (
+                  <span
+                    className={styles.dateStatus}
+                    style={{
+                      backgroundColor: curDateColor(item.dueDate)
+                        ? "#cf3636"
+                        : "#eeecec",
+                      color: curDateColor(item.dueDate) ? "#fff" : "#000",
+                    }}
+                  >
+                    {formatDate(item.dueDate)}
+                  </span>
+                )}
+              </div>
+              <div className={styles.secTaskStatus}>
+                <span onClick={() => moveBacklogsItem(item)}>Backlog</span>
+                <span onClick={() => moveToDoItem(item)}>To-Do</span>
+                <span onClick={() => moveDoneItem(item)}>Done</span>
               </div>
             </div>
           </div>
@@ -260,21 +315,25 @@ const checkInput = ()=> {}
       })}
 
       {showCopyLink && (
-          <div className={styles.copiedBox}>
-            <p>Link Copied</p>
-            <div className={`${styles.deviderLine} ${showCopyLink ? styles.fullwidth : '' } `}></div>
-          </div>
-        )}
+        <div className={styles.copiedBox}>
+          <p>Link Copied</p>
+          <div
+            className={`${styles.deviderLine} ${
+              showCopyLink ? styles.fullwidth : ""
+            } `}
+          ></div>
+        </div>
+      )}
 
-        {showDeleteBox && (
-          <DeletePopup deleteItemID={deleteId} deletePop={deleteItemBox} />
-        )}
-        {showEditTaskPopup && (
-          <EditTaskForm 
-          taskData={editTaskItemData} 
+      {showDeleteBox && (
+        <DeletePopup deleteItemID={deleteId} deletePop={deleteItemBox} />
+      )}
+      {showEditTaskPopup && (
+        <EditTaskForm
+          taskData={editTaskItemData}
           closeEditForm={closeEditFormBox}
-           />
-        )}
+        />
+      )}
     </>
   );
 };

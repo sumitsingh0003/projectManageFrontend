@@ -1,13 +1,10 @@
-import React from 'react'
+import React from "react";
 import styles from "./../Styles/Auth.module.css";
 import BASEURL from "../constant/baseurl.js";
 import axios from "axios";
 
-
-
-const DeletePopup = ({deleteItemID, deletePop}) => {
-// console.log(deleteItemID, deletePop)
-
+const DeletePopup = ({ deleteItemID, deletePop }) => {
+  // console.log(deleteItemID, deletePop)
 
   const deleteItemBox = async (itemId) => {
     const token = localStorage.getItem("token");
@@ -34,16 +31,23 @@ const DeletePopup = ({deleteItemID, deletePop}) => {
 
   return (
     <>
-    <div className={styles.deleteTaskMainSec}>
-      <div className={styles.delTaskBG}></div>
-      <div className={styles.delTaskBGBox}>
+      <div className={styles.deleteTaskMainSec}>
+        <div className={styles.delTaskBG}></div>
+        <div className={styles.delTaskBGBox}>
           <p>Are you sure want to Delete?</p>
-          <button className={`${styles.delTskBtn} ${styles.saveBtn}`} onClick={()=>deleteItemBox(deleteItemID)}>Yes, Delete</button>
-          <button className={styles.delTskBtn} onClick={deletePop}>Cancle</button>
+          <button
+            className={`${styles.delTskBtn} ${styles.saveBtn}`}
+            onClick={() => deleteItemBox(deleteItemID)}
+          >
+            Yes, Delete
+          </button>
+          <button className={styles.delTskBtn} onClick={deletePop}>
+            Cancle
+          </button>
+        </div>
       </div>
-    </div>
     </>
-  )
-}
+  );
+};
 
 export default DeletePopup;

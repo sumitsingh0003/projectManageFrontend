@@ -9,83 +9,83 @@ body {
   padding: 0;
 }
 .mainDashboard {
-    background: #eee;
-    height: 100%;
-    display: flex;
-    position: relative;
-  }
-  .rightPageSec {
-    margin-left: 15%;
-    background: #fff;
-    width: 85%;
-  }
-  .rightPageNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  .rightPageNav h2 {
-    font-size: 20px;
-    font-family: sans-serif;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  
+  background: #eee;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.rightPageSec {
+  margin-left: 15%;
+  background: #fff;
+  width: 85%;
+}
+.rightPageNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.rightPageNav h2 {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .analMainSec {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .analTasksBox {
-    background: #f9fcff;
-    border-radius: 10px;
-    width: 35%;
-    margin-right: 20px;
-    padding: 20px;
-  }
-  .analTasksBox ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .analTasksBox ul li {
-    margin-bottom: 20px;
-  }
-  .analTasksBox .itemBoxPrity {
-    font-size: 20px;
-    font-family: monospace;
-  }
-  .analTasksBox .itemBoxPrity .priorityDots {
-    background: #90c4cc;
-    margin-right: 10px;
-  }
-  .analTasksBox .itemBoxPrity p {
-    font-size: 16px;
-    text-transform: capitalize;
-  }
-  .itemBoxPrity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .itemBoxPritytitle {
-    display: flex;
-    align-items: center;
-  }
-  .itemBoxPritytitle .priorityDots {
-    background: red;
-    width: 8px;
-    height: 8px;
-    border-radius: 10px;
-    margin-right: 4px;
-  }
-  .itemBoxPritytitle p {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    text-transform: uppercase;
-    font-family: sans-serif;
-  }
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.analTasksBox {
+  background: #f9fcff;
+  border-radius: 10px;
+  width: 35%;
+  margin-right: 20px;
+  padding: 20px;
+}
+.analTasksBox ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.analTasksBox ul li {
+  margin-bottom: 20px;
+}
+.analTasksBox .itemBoxPrity {
+  font-size: 20px;
+  font-family: monospace;
+}
+.analTasksBox .itemBoxPrity .priorityDots {
+  background: #90c4cc;
+  margin-right: 10px;
+}
+.analTasksBox .itemBoxPrity p {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+.itemBoxPrity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.itemBoxPritytitle {
+  display: flex;
+  align-items: center;
+}
+.itemBoxPritytitle .priorityDots {
+  background: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  margin-right: 4px;
+}
+.itemBoxPritytitle p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}

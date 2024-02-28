@@ -1,115 +1,116 @@
 .rightPageSec {
-    margin-left: 15%;
-    background: #fff;
-    width: 85%;
-  }
-  .rightPageNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  .rightPageNav p {
-    font-size: 16px;
-    font-family: sans-serif;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #999;
-  }
-  
-  .rightPageNav h2 {
-    font-size: 20px;
-    font-family: sans-serif;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .rightPageTitle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  .rightPageTitle h1 {
-    font-size: 25px;
-    font-family: sans-serif;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .filterItems {
-    position: relative;
-  }
-  .filterItems span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  .filterItems span i {
-    font-size: 16px;
-    margin: 5px 10px 0px 10px;
-    line-height: 0;
-  }
-  .filterItems ul {
-    margin: 0;
-    list-style: none;
-    background: #fff;
-    padding: 0px;
-    border-radius: 7px;
-    box-shadow: 0px 1px 30px -11px #8ba6a9;
-    -webkit-box-shadow: 0px 1px 30px -11px #8ba6a9;
-    position: absolute;
-    width: 120px;
-    top: 30px;
-    overflow: hidden;
-    right: 0;z-index: 9;
-  }
-  .filterItems ul li {
-    font-size: 16px;
-    font-family: monospace;
-    padding: 7px 10px;
-    cursor: pointer;
-    transition: all 0.3s linear;
-  }
-  .filterItems ul li:hover {
-    background: #17a2b8;
-    color: #fff;
-  }
-  .allMainSections {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    height: 100vh;
-  }
-  .itemsScrollSectios {
-    overflow: auto;
-    height: 100%;
-    padding: 0px 10px;
-  }
-  .allMainSections .itemsSec {
-    background: #eef2f5;
-    width: 24%;
-    border-radius: 10px;
-    padding: 0px 0px 45px 0px;
-    overflow: hidden;
-    position: relative;
-  }
-  .itemMainBox {
-    background: #fff;
-    padding: 20px 15px;
-    border-radius: 20px;
-    margin-top: 20px;
-  }
-  .itemMainBox h3 {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    font-family: sans-serif;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
+  margin-left: 15%;
+  background: #fff;
+  width: 85%;
+}
+.rightPageNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.rightPageNav p {
+  font-size: 16px;
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #999;
+}
+
+.rightPageNav h2 {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.rightPageTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.rightPageTitle h1 {
+  font-size: 25px;
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.filterItems {
+  position: relative;
+}
+.filterItems span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.filterItems span i {
+  font-size: 16px;
+  margin: 5px 10px 0px 10px;
+  line-height: 0;
+}
+.filterItems ul {
+  margin: 0;
+  list-style: none;
+  background: #fff;
+  padding: 0px;
+  border-radius: 7px;
+  box-shadow: 0px 1px 30px -11px #8ba6a9;
+  -webkit-box-shadow: 0px 1px 30px -11px #8ba6a9;
+  position: absolute;
+  width: 120px;
+  top: 30px;
+  overflow: hidden;
+  right: 0;
+  z-index: 9;
+}
+.filterItems ul li {
+  font-size: 16px;
+  font-family: monospace;
+  padding: 7px 10px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.filterItems ul li:hover {
+  background: #17a2b8;
+  color: #fff;
+}
+.allMainSections {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 100vh;
+}
+.itemsScrollSectios {
+  overflow: auto;
+  height: 100%;
+  padding: 0px 10px;
+}
+.allMainSections .itemsSec {
+  background: #eef2f5;
+  width: 24%;
+  border-radius: 10px;
+  padding: 0px 0px 45px 0px;
+  overflow: hidden;
+  position: relative;
+}
+.itemMainBox {
+  background: #fff;
+  padding: 20px 15px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.itemMainBox h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .itemBoxTitle {
   display: flex;
@@ -132,20 +133,21 @@
 .tasklisting {
   margin-top: 20px;
 }
-  .itemBoxPrity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;position: relative;
-  }
-  .itemOptions {
-    position: absolute;
-    top: 30px;
-    right: 0;
-    box-shadow: 0px 0px 10px 5px #ddd;
-    border-radius: 7px;
-    overflow: hidden;
-    width: 100px;
+.itemBoxPrity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.itemOptions {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  box-shadow: 0px 0px 10px 5px #ddd;
+  border-radius: 7px;
+  overflow: hidden;
+  width: 100px;
 }
 .itemOptions ul {
   list-style: none;
@@ -158,57 +160,55 @@
   cursor: pointer;
 }
 .itemOptions ul li:hover {
- color: #921616;
+  color: #921616;
 }
- .priorityDots {
-    background: red;
-    width: 8px;
-    height: 8px;
-    border-radius: 10px;
-    margin-right: 4px;
+.priorityDots {
+  background: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  margin-right: 4px;
 }
-  .itemBoxPritytitle {
-    display: flex;
-    align-items: center;
-  }
-  .itemBoxPritytitle p {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    text-transform: uppercase;
-    font-family: sans-serif;
+.itemBoxPritytitle {
+  display: flex;
+  align-items: center;
+}
+.itemBoxPritytitle p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: sans-serif;
 }
 .itemBoxPrityIcons i {
   font-size: 14px;
   cursor: pointer;
 }
-  .itemSecTitle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 10px 10px 10px;
-    position: sticky;
-    top: 0;
-    background: #eef2f5;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px
-  }
-  .itemSecTitle p {
-    font-size: 14px;
-    font-family: sans-serif;
-    margin: 0;
-  }
-  .itemSecTitleIcons i {
-    font-size: 14px;
-    color: #999;
-    cursor: pointer;
-  }
-  .itemSecTitleIcons i.fa.fa-plus {
-    margin-right: 10px;
-  }
+.itemSecTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 10px;
+  position: sticky;
+  top: 0;
+  background: #eef2f5;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.itemSecTitle p {
+  font-size: 14px;
+  font-family: sans-serif;
+  margin: 0;
+}
+.itemSecTitleIcons i {
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+.itemSecTitleIcons i.fa.fa-plus {
+  margin-right: 10px;
+}
 
-
-  
 /* Add Task Pop Up Form CSS */
 .mainPopup {
   position: relative;
@@ -277,10 +277,10 @@
 .radioPriority:last-child {
   margin-right: 0;
 }
-.popUpForm sup{
+.popUpForm sup {
   color: red;
 }
-.radioPriority input[type=radio] {
+.radioPriority input[type="radio"] {
   display: none;
 }
 .radioPriority label {
@@ -290,7 +290,7 @@
   border: 1px solid #ddd;
   cursor: pointer;
 }
-.radioPriority input[type=radio]:checked ~ label {
+.radioPriority input[type="radio"]:checked ~ label {
   background-color: #dddddd;
 }
 .tasklisting ul li i {
@@ -318,14 +318,14 @@
   overflow: hidden;
 }
 
-.tasklisting ul li input[type=checkbox] {
+.tasklisting ul li input[type="checkbox"] {
   cursor: pointer;
   height: 15px;
   width: 15px;
   border-radius: 25px;
   background-color: #eee;
 }
-.tasklisting ul li input[type=text] {
+.tasklisting ul li input[type="text"] {
   outline: none;
   border: none;
   font-size: 14px;
@@ -392,7 +392,7 @@
   color: #eee;
   border: 1px solid #18b0ff;
 }
-.formDuoDate input[type=date] {
+.formDuoDate input[type="date"] {
   display: none;
 }
 .formDuoDate label {
@@ -405,7 +405,8 @@
 }
 .popUpForm .tasklisting {
   max-height: 250px;
-  overflow: hidden auto;padding-top: 10px;
+  overflow: hidden auto;
+  padding-top: 10px;
 }
 .popUpForm .tasklisting::-webkit-scrollbar-thumb {
   background: #9cb7c5;
@@ -434,20 +435,24 @@
 }
 
 .deviderLine {
-  content: '';
-    width: 10%;
-    height: 6px;
-    position: absolute;
-    left: -20px;
-    bottom: 0;
-    background: #63c05b;
+  content: "";
+  width: 10%;
+  height: 6px;
+  position: absolute;
+  left: -20px;
+  bottom: 0;
+  background: #63c05b;
   animation-name: example;
   animation-duration: 5s;
 }
 @keyframes example {
-  0%   {width:10%;}
-  100% {width:130%;}
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 130%;
+  }
 }
-.fullwidth{
+.fullwidth {
   width: 130%;
 }

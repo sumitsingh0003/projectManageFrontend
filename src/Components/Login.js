@@ -1,7 +1,7 @@
 // Login.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";  
+import axios from "axios";
 import styles from "../Styles/Auth.module.css";
 import emailIcon from "../Assets/Icons/mail.png";
 import lockIcon from "../Assets/Icons/lock.png";
@@ -10,7 +10,6 @@ import CloseEye from "../Assets/Icons/closeEye.png";
 import wlcimg from "../Assets/Images/welcomeRobot.png";
 import BASEURL from "../constant/baseurl.js";
 import LoadingGif from "../Assets/Images/loading-gif.gif";
-
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,16 +34,16 @@ const Login = () => {
     });
   };
 
-  const changeLoadingStae = () =>{
+  const changeLoadingStae = () => {
     setTimeout(() => {
-      setLoadingState(false)
+      setLoadingState(false);
     }, 2000);
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoadingState(true)
-    changeLoadingStae()
+    setLoadingState(true);
+    changeLoadingStae();
     const { email, password } = formData;
 
     if (!email || !password) {
@@ -86,20 +85,7 @@ const Login = () => {
     }
   };
 
-   
-  // function isTokenExpired() {
-  //   const token = localStorage.getItem("token");
-  //   if (!token) return true; 
-  //   const { expiration } = JSON.parse(token);
-  //   return expiration < Date.now(); 
-  // }
   
-  // if (!isTokenExpired()) {
-  //   // eslint-disable-next-line 
-  //   const { value } = JSON.parse(localStorage.getItem("token"));
-  // } else {
-  //   localStorage.removeItem("token");
-  // }
 
   const handleRegisterClick = () => {
     navigate("/");
@@ -131,7 +117,7 @@ const Login = () => {
                   />
                 </div>
                 {errData && formData.email.length === 0 ? (
-                  <p className={styles.errField}>Please fill the field.</p>
+                  <p className={styles.errField}>Please Enter the Email</p>
                 ) : (
                   ""
                 )}
@@ -167,15 +153,21 @@ const Login = () => {
                   </div>
                 </div>
                 {errData && formData.password.length === 0 ? (
-                  <p className={styles.errField}>Please fill the field.</p>
+                  <p className={styles.errField}>Please Enter the Password</p>
                 ) : (
                   ""
                 )}
-                {loadingState? <img src={LoadingGif} alt="Loading Gif" className="loadingGif compoGif" /> :
-                    <button type="submit" className={styles.submtBtn}>
+                {loadingState ? (
+                  <img
+                    src={LoadingGif}
+                    alt="Loading Gif"
+                    className="loadingGif compoGif"
+                  />
+                ) : (
+                  <button type="submit" className={styles.submtBtn}>
                     Log in
                   </button>
-                }
+                )}
               </form>
               <span>Don't have an account yet?</span>
               <button

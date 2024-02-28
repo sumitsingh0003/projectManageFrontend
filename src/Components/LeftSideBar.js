@@ -7,7 +7,7 @@ import setting from "../Assets/Icons/settings.png";
 import codesandbox from "../Assets/Icons/codesandbox.png";
 import LogoutIcon from "../Assets/Icons/Logout.png";
 
-const LeftSideBar = ({logOutPop}) => {
+const LeftSideBar = ({ logOutPop }) => {
   const location = useLocation();
 
   return (
@@ -44,11 +44,9 @@ const LeftSideBar = ({logOutPop}) => {
       </div>
 
       <div className={styles.logOutLink} onClick={logOutPop}>
-      <img src={LogoutIcon} alt="LogoutIcon" />
+        <img src={LogoutIcon} alt="LogoutIcon" />
         <p> Log Out</p>
       </div>
-
-      
     </div>
   );
 };

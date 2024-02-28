@@ -19,23 +19,21 @@ const Dashboard = () => {
   const [showFilterTask, setShowFilterTask] = useState(false);
   const [tasksData, setTasksData] = useState([]);
   const [loadingState, setLoadingState] = useState(false);
-  const [timeFrame, setTimeFrame] = useState('This Week');
+  const [timeFrame, setTimeFrame] = useState("This Week");
   const [showCheckList, setShowCheckList] = useState(-1);
   const [showSecondCheckList, setShowSecondCheckList] = useState(-1);
   const [showThirdCheckList, setShowThirdCheckList] = useState(-1);
   const [showFourthCheckList, setSshowFourthCheckList] = useState(-1);
 
-
-  const changeLoadingStae = () =>{
+  const changeLoadingStae = () => {
     setTimeout(() => {
-      setLoadingState(false)
+      setLoadingState(false);
     }, 2000);
-  }
-
+  };
 
   const getSingleUserData = async () => {
-    setLoadingState(true)
-    changeLoadingStae()
+    setLoadingState(true);
+    changeLoadingStae();
     try {
       // const { value } = JSON.parse(localStorage.getItem("token"));
       const token = localStorage.getItem("token");
@@ -78,11 +76,10 @@ const Dashboard = () => {
     }
   };
 
-
   const checkListItemsBox = (id) => {
     if (id === showCheckList) {
       setShowCheckList(-1);
-    }else {
+    } else {
       setShowCheckList(id);
     }
   };
@@ -90,7 +87,7 @@ const Dashboard = () => {
   const checkListsecondItemsBox = (id) => {
     if (id === showSecondCheckList) {
       setShowSecondCheckList(-1);
-    }else {
+    } else {
       setShowSecondCheckList(id);
     }
   };
@@ -98,7 +95,7 @@ const Dashboard = () => {
   const checkListThirdItemsBox = (id) => {
     if (id === showThirdCheckList) {
       setShowThirdCheckList(-1);
-    }else {
+    } else {
       setShowThirdCheckList(id);
     }
   };
@@ -106,7 +103,7 @@ const Dashboard = () => {
   const checkListFourthItemsBox = (id) => {
     if (id === showFourthCheckList) {
       setSshowFourthCheckList(-1);
-    }else {
+    } else {
       setSshowFourthCheckList(id);
     }
   };
@@ -161,20 +158,28 @@ const Dashboard = () => {
   const getFilteredTasks = () => {
     const today = new Date();
     const tasksToShow = [];
-  
+
     let startDate, endDate;
     switch (timeFrame) {
-      case 'Today':
-        startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-        endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+      case "Today":
+        startDate = new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate()
+        );
+        endDate = new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate() + 1
+        );
         break;
-      case 'This Week':
+      case "This Week":
         startDate = new Date(today);
         startDate.setDate(startDate.getDate() - today.getDay());
         endDate = new Date(today);
         endDate.setDate(endDate.getDate() + (6 - today.getDay()));
         break;
-      case 'This Month':
+      case "This Month":
         startDate = new Date(today.getFullYear(), today.getMonth(), 1);
         endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
         break;
@@ -182,84 +187,108 @@ const Dashboard = () => {
         startDate = null;
         endDate = null;
     }
-  
+
     for (let i = 0; i < tasksData.length; i++) {
       const taskDate = new Date(tasksData[i].createdOn);
       if (
-        (timeFrame === 'Today' && taskDate >= startDate && taskDate < endDate) || 
+        (timeFrame === "Today" &&
+          taskDate >= startDate &&
+          taskDate < endDate) ||
         (startDate && endDate && taskDate >= startDate && taskDate <= endDate)
       ) {
         tasksToShow.push(tasksData[i]);
       }
     }
-  
+
     return tasksToShow;
   };
-  
-  
+
   const handleTimeFrameChange = (selectedTimeFrame) => {
     setTimeFrame(selectedTimeFrame);
-    setShowFilterTask(!showFilterTask)
+    setShowFilterTask(!showFilterTask);
   };
-
 
   return (
     <div className={styles.mainDashboard}>
-      <LeftSideBar logOutPop={logOutUser}/>
+      <LeftSideBar logOutPop={logOutUser} />
 
       <div className={styles.rightPageSec}>
-      <div className="mainHeader">     
-        <div className={styles.rightPageNav}>
-          <h2>Welcome! {loadingState? <img src={LoadingGif} alt="Loading Gif" className="loadingGif" /> : userName }</h2>
-          <p>{formattedDate}</p>
-        </div>
-
-        <div className={styles.rightPageTitle}>
-          <h1>Board</h1>
-          <div className={styles.filterItems}>
-            <span onClick={() => setShowFilterTask(!showFilterTask)}>
-            {timeFrame}
-              {showFilterTask ? (
-                <i className="fa fa-angle-up" aria-hidden="true"></i>
+        <div className="mainHeader">
+          <div className={styles.rightPageNav}>
+            <h2>
+              Welcome!{" "}
+              {loadingState ? (
+                <img
+                  src={LoadingGif}
+                  alt="Loading Gif"
+                  className="loadingGif"
+                />
               ) : (
-                <i className="fa fa-angle-down" aria-hidden="true"></i>
+                userName
               )}
-            </span>
+            </h2>
+            <p>{formattedDate}</p>
+          </div>
 
-            {showFilterTask ? (
-              <ul>
-                <li onClick={() => handleTimeFrameChange('Today')}>Today</li>
-                <li onClick={() => handleTimeFrameChange('This Week')}>This Week</li>
-                <li onClick={() => handleTimeFrameChange('This Month')}>This Month</li>
-              </ul>
-            ) : (
-              ""
-            )}
+          <div className={styles.rightPageTitle}>
+            <h1>Board</h1>
+            <div className={styles.filterItems}>
+              <span onClick={() => setShowFilterTask(!showFilterTask)}>
+                {timeFrame}
+                {showFilterTask ? (
+                  <i className="fa fa-angle-up" aria-hidden="true"></i>
+                ) : (
+                  <i className="fa fa-angle-down" aria-hidden="true"></i>
+                )}
+              </span>
+
+              {showFilterTask ? (
+                <ul>
+                  <li onClick={() => handleTimeFrameChange("Today")}>Today</li>
+                  <li onClick={() => handleTimeFrameChange("This Week")}>
+                    This Week
+                  </li>
+                  <li onClick={() => handleTimeFrameChange("This Month")}>
+                    This Month
+                  </li>
+                </ul>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
-        </div>
         <div className={styles.allMainSections}>
-
           <div className={styles.itemsSec}>
             <div className={styles.itemSecTitle}>
               <p>Backlog</p>
-              <div className={styles.itemSecTitleIcons} onClick={()=>checkListItemsBox(0)}>
+              <div
+                className={styles.itemSecTitleIcons}
+                onClick={() => checkListItemsBox(0)}
+              >
                 <i className="fa fa-clone" aria-hidden="true"></i>
               </div>
             </div>
 
             <div className={styles.itemsScrollSectios}>
-            {loadingState? <img src={LoadingGif} alt="Loading Gif" className="loadingGif compoGif" /> :
-              <BacklogsComponent
-               backlogTaskData={getFilteredTasks().filter(task => task.status === "backlog")}
-                popUpTaskBox={getTaskData}
-                checkFunc={checkListItemsBox}
-                checkListCurID={showCheckList}
-              />
-            }
+              {loadingState ? (
+                <img
+                  src={LoadingGif}
+                  alt="Loading Gif"
+                  className="loadingGif compoGif"
+                />
+              ) : (
+                <BacklogsComponent
+                  backlogTaskData={getFilteredTasks().filter(
+                    (task) => task.status === "backlog"
+                  )}
+                  popUpTaskBox={getTaskData}
+                  checkFunc={checkListItemsBox}
+                  checkListCurID={showCheckList}
+                />
+              )}
             </div>
           </div>
-
 
           <div className={styles.itemsSec}>
             <div className={styles.itemSecTitle}>
@@ -271,61 +300,93 @@ const Dashboard = () => {
                   onClick={() => setOpenTaskBox(!openTaskBox)}
                   aria-hidden="true"
                 ></i>
-                <i className="fa fa-clone" aria-hidden="true" onClick={()=>checkListsecondItemsBox(0)}></i>
+                <i
+                  className="fa fa-clone"
+                  aria-hidden="true"
+                  onClick={() => checkListsecondItemsBox(0)}
+                ></i>
               </div>
             </div>
 
             <div className={styles.itemsScrollSectios}>
-            {loadingState? <img src={LoadingGif} alt="Loading Gif" className="loadingGif compoGif" /> :
-              <TodoItemComponent
-                todoTaskData={getFilteredTasks().filter(task => task.status === "todo")}
-                popUpTaskBox={getTaskData}
-                checkFunc={checkListsecondItemsBox}
-                checkListCurID={showSecondCheckList}
-              />
-            }
+              {loadingState ? (
+                <img
+                  src={LoadingGif}
+                  alt="Loading Gif"
+                  className="loadingGif compoGif"
+                />
+              ) : (
+                <TodoItemComponent
+                  todoTaskData={getFilteredTasks().filter(
+                    (task) => task.status === "todo"
+                  )}
+                  popUpTaskBox={getTaskData}
+                  checkFunc={checkListsecondItemsBox}
+                  checkListCurID={showSecondCheckList}
+                />
+              )}
             </div>
           </div>
-
 
           <div className={styles.itemsSec}>
             <div className={styles.itemSecTitle}>
               <p>In progress</p>
-              <div className={styles.itemSecTitleIcons} onClick={()=>checkListThirdItemsBox(0)}>
+              <div
+                className={styles.itemSecTitleIcons}
+                onClick={() => checkListThirdItemsBox(0)}
+              >
                 <i className="fa fa-clone" aria-hidden="true"></i>
               </div>
             </div>
 
             <div className={styles.itemsScrollSectios}>
-            {loadingState? <img src={LoadingGif} alt="Loading Gif" className="loadingGif compoGif" /> :
-              <ProgressItemComponent
-                progTaskData={getFilteredTasks().filter(task => task.status === "in_progress")}
-                popUpTaskBox={getTaskData}
-                checkFunc={checkListThirdItemsBox}
-                checkListCurID={showThirdCheckList}
-              />
-            }
+              {loadingState ? (
+                <img
+                  src={LoadingGif}
+                  alt="Loading Gif"
+                  className="loadingGif compoGif"
+                />
+              ) : (
+                <ProgressItemComponent
+                  progTaskData={getFilteredTasks().filter(
+                    (task) => task.status === "in_progress"
+                  )}
+                  popUpTaskBox={getTaskData}
+                  checkFunc={checkListThirdItemsBox}
+                  checkListCurID={showThirdCheckList}
+                />
+              )}
             </div>
           </div>
-
 
           <div className={styles.itemsSec}>
             <div className={styles.itemSecTitle}>
               <p>Done</p>
-              <div className={styles.itemSecTitleIcons} onClick={()=>checkListFourthItemsBox(0)}>
+              <div
+                className={styles.itemSecTitleIcons}
+                onClick={() => checkListFourthItemsBox(0)}
+              >
                 <i className="fa fa-clone" aria-hidden="true"></i>
               </div>
             </div>
 
             <div className={styles.itemsScrollSectios}>
-            {loadingState? <img src={LoadingGif} alt="Loading Gif" className="loadingGif compoGif" /> :
-              <DoneItemComponent
-                doneTaskData={getFilteredTasks().filter(task => task.status === "done")}
-                popUpTaskBox={getTaskData}
-                checkFunc={checkListFourthItemsBox}
-                checkListCurID={showFourthCheckList}
-              />
-            }
+              {loadingState ? (
+                <img
+                  src={LoadingGif}
+                  alt="Loading Gif"
+                  className="loadingGif compoGif"
+                />
+              ) : (
+                <DoneItemComponent
+                  doneTaskData={getFilteredTasks().filter(
+                    (task) => task.status === "done"
+                  )}
+                  popUpTaskBox={getTaskData}
+                  checkFunc={checkListFourthItemsBox}
+                  checkListCurID={showFourthCheckList}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -340,9 +401,7 @@ const Dashboard = () => {
         ""
       )}
 
-      {showDeleteBox && (
-        <LogoutPopup logOutPop={logOutUser} />
-      )}
+      {showDeleteBox && <LogoutPopup logOutPop={logOutUser} />}
     </div>
   );
 };
