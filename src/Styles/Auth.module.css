@@ -1,0 +1,233 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #17a2b8;
+  border-radius: 10px;
+}
+
+.mainSec {
+  background: #ededed;
+  padding: 70px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parentBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  background: #fff;
+}
+
+.leftSideSec {
+  background: #17a2b8;
+  width: 60%;
+  text-align: center;
+  padding: 40px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.rgstrPageImgBox {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.leftSideSec img {
+  width: 100%;
+}
+
+.leftSideSec h4 {
+  color: #fff;
+  font-family: sans-serif;
+  margin: 0;
+  font-size: 20px;
+}
+
+.leftSideSec p {
+  color: #fff;
+  font-family: sans-serif;
+  margin: 0;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.rightSideSec {
+  padding: 30px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.formSec {
+  margin-top: 50px;
+}
+
+.rgstr_bx .formSec {
+  margin-top: 20px !important;
+}
+
+.rgstr_bx h2 {
+  margin: 0px !important;
+}
+
+.rightSideSec h2 {
+  font-size: 32px;
+  font-family: sans-serif;
+}
+
+.rightSideSec .innerSec {
+  width: 100%;
+}
+
+.formField {
+  margin-top: 20px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.formField input {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.formField img {
+  width: 20px;
+  opacity: 0.7;
+}
+
+.showPsdwdImg {
+  margin-right: 5px;
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+/* .showPsdwdImg img {
+  height: 5vh;
+} */
+
+.errField {
+  font-size: 12px;
+  text-align: justify;
+  margin-top: 0;
+  color: #db2c2c;
+}
+
+.submtBtn {
+  width: 100%;
+  background: #17a2b8;
+  border: 1px solid #17a2b8;
+  border-radius: 100px;
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  margin: 30px 0px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.submtBtn:hover {
+  background: #fff;
+  color: #17a2b8;
+}
+
+.routPageBtn {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #17a2b8;
+  border-radius: 100px;
+  padding: 10px;
+  cursor: pointer;
+  color: #17a2b8;
+  font-size: 16px;
+  margin: 20px 0px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.routPageBtn:hover {
+  background: #17a2b8;
+  color: #fff;
+}
+
+.formSec span {
+  font-size: 16px;
+  display: block;
+  font-family: sans-serif;
+  color: #999;
+}
+
+.deleteTaskMainSec {
+  position: relative;
+}
+.deleteTaskMainSec .delTaskBG {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #000000ab;
+  z-index: 9;
+}
+.deleteTaskMainSec .delTaskBGBox {
+  position: fixed;
+  top: 35%;
+  left: 35%;
+  width: 20%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  z-index: 99;
+
+}
+
+
+.delTskBtn {
+  background: #fff;
+  padding: 7px 30px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #cf3636;
+  cursor: pointer;
+  font-size: 16px;
+  color: #cf3636;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.saveBtn {
+  background: #18b0ff;
+  color: #eee;
+  border: 1px solid #18b0ff;
+}

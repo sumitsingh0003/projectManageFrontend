@@ -1,0 +1,221 @@
+.mainPopup {
+    position: relative;
+  }
+  .mainPopup .popUpBg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #000000ab;z-index: 9;
+  }
+  .mainPopup .popUpForm {
+    position: fixed;
+    top: 10%;
+    left: 35%;
+    width: 35%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: sans-serif;z-index: 9;
+  }
+  .enterTitle {
+    margin-bottom: 10px;
+  }
+  .enterTitle label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .enterTitle input {
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .formSelectPriority {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  .radioPriority {
+    margin: 0px 8px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .radioDots {
+    width: 7px;
+    height: 7px;
+    background: #eee;
+    position: absolute;
+    left: 7px;
+    border-radius: 10px;
+  }
+  .highRadio {
+    background: #ff2473;
+  }
+  .modeRadio {
+    background: #18b0ff;
+  }
+  .lowRadio {
+    background: #63c05b;
+  }
+  .radioPriority:last-child {
+    margin-right: 0;
+  }
+  .popUpForm sup{
+    color: red;
+  }
+  .radioPriority input[type=radio] {
+    display: none;
+  }
+  .radioPriority label {
+    padding: 5px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+  }
+  .radioPriority input[type=radio]:checked ~ label {
+    background-color: #dddddd;
+  }
+  .tasklisting ul li i.fa.fa-trash {
+    float: inline-end;
+    color: #cf3636;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  .tasklisting ul li i {
+    float: inline-end;
+    color: #cf3636;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  .tasklisting ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .tasklisting ul li {
+    margin-bottom: 5px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: sans-serif;
+    display: flex;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+  .tasklisting ul li input[type=checkbox] {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border-radius: 25px;
+    background-color: #eee;
+  }
+  .tasklisting ul li input[type=text] {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    width: 100%;
+  }
+  .addItemTask {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 7px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #999;
+  }
+  .formFootSec {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+  }
+  .addTaskBtn {
+    background: #fff;
+    padding: 7px 30px;
+    border-radius: 6px;
+    outline: none;
+    margin-left: 10px;
+    border: 1px solid #cf3636;
+    cursor: pointer;
+    font-size: 16px;
+    color: #cf3636;
+  }
+  .saveBtn {
+    background: #18b0ff;
+    color: #eee;
+    border: 1px solid #18b0ff;
+  }
+
+  .popUpForm .tasklisting {
+    max-height: 250px;
+    overflow: hidden auto;padding-top: 10px;
+  }
+  .popUpForm .tasklisting::-webkit-scrollbar-thumb {
+    background: #9cb7c5;
+    border-radius: 10px;
+  }
+  .popUpForm .tasklisting::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #d6eaf4;
+  }
+  .errField {
+    font-size: 12px;
+    text-align: justify;
+    margin-top: 0;
+    color: #db2c2c;
+  }
+  /* .formDuoDate label {
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 7px 20px;
+    color: #999;
+  } */
+
+  .formateDate {
+    /* border: 1px solid #ddd; */
+    border-radius: 10px;
+    position: relative;
+    /* overflow: hidden; */
+}
+  .formateDate label {
+    position: absolute;
+    top: 13px;
+    left: 17px;
+    font-size: 12px;
+    background: #fff;
+}
+.formateDate input[type="date"]{
+  position: relative;
+    padding: 10px 20px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-position: right;
+    background-size: auto;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: auto;
+    opacity: 0;
+}

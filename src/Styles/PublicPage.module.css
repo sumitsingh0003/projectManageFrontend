@@ -1,0 +1,150 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.leftSideBar.publicPage {
+    border: none;
+  }
+  .publicPageItem .itemsSec {
+    width: 40%;
+    margin: 100px auto;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 1px 0px #ddd;
+    border-radius: 20px;
+  }
+  .publicPageItem .itemMainBox {
+    margin: 0;
+  }
+  .publicPageItem .tasklisting {
+    max-height: 200px;
+    overflow: hidden auto;
+  }
+  .publicPageItem .tasklisting::-webkit-scrollbar-thumb {
+    background: #9cb7c5;
+    border-radius: 10px;
+  }
+  .publicPageItem .tasklisting::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #d6eaf4;
+  }
+  .publicPageItem .chooseTaskStatus .dateStatus {
+    margin-left: 20px;
+  }
+  .itemMainBox {
+    background: #fff;
+    padding: 20px 15px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.itemBoxPrity{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.itemBoxPritytitle {
+  display: flex;
+  align-items: center;
+}
+.priorityDots {
+  background: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 10px;
+  margin-right: 4px;
+}
+.itemBoxPritytitle p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+.itemMainBox h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.itemBoxTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.itemBoxTitle p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+.tasklisting {
+  margin-top: 20px;
+}
+.tasklisting ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tasklisting ul li {
+  margin-bottom: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: sans-serif;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+.tasklisting ul li input[type=checkbox] {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  border-radius: 25px;
+  background-color: #eee;
+}
+.dateStatus {
+  background: #ddd;
+  padding: 6px 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-family: sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-left: 3px;
+}
+.chooseTaskStatus{
+  padding-top: 10px;
+}
+.sideBarTitle{
+    display: flex;
+    align-items: center; 
+    padding: 20px 30px;
+    cursor: pointer;
+}
+.sideBarTitle img {
+  width: 30px;
+  margin-right: 10px;
+}
+.sideBarTitle h2 {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+}

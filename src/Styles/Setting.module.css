@@ -1,0 +1,65 @@
+.settingFormBox .formSec {
+    margin: 0;
+    width: 30%;
+    padding: 0px 20px;
+  }
+
+  .rightPageSec {
+    margin-left: 15%;
+    background: #fff;
+    width: 85%;
+  }
+  .rightPageNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .rightPageNav h2 {
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .formField {
+    margin-top: 20px;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+  
+  .formField input {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+  }.submtBtn {
+    width: 100%;
+    background: #17a2b8;
+    border: 1px solid #17a2b8;
+    border-radius: 100px;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    margin: 30px 0px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  .submtBtn:hover {
+    background: #fff;
+    color: #17a2b8;
+  }
+  
+  .formField img {
+    width: 25px;
+}
+.showPsdwdImg {
+  margin-right: 5px;
+  cursor: pointer;
+  margin-top: 3px;
+}

@@ -1,0 +1,44 @@
+.deleteTaskMainSec {
+    position: relative;
+  }
+  .deleteTaskMainSec .delTaskBG {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #000000ab;
+  }
+  .deleteTaskMainSec .delTaskBGBox {
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    width: 20%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .delTskBtn{
+    background: #fff;
+      padding: 7px 30px;
+      border-radius: 6px;
+      outline: none;
+      border: 1px solid #cf3636;
+      cursor: pointer;
+      font-size: 16px;
+      color: #cf3636;
+      width: 100%;
+      margin-bottom: 10px;
+  }
+  .delTskBtn.saveBtn {
+    background: #18b0ff;
+    color: #eee;
+    border: 1px solid #18b0ff;
+  }
+  
+  
+  
+  
+  
